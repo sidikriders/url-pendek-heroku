@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Short Your Url</h1>
+    <form action="/short" method="post">
+      <input type="text" name="short" placeholder="Please input your url here">
+      <button type="submit">Submit</button>
+      <table>
+        <thead>
+          <tr>
+            <th> No |</th>
+            <th>| URL |</th>
+            <th>| Shorten Link |</th>
+            <th>| Click Count </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let i = 1;urls.forEach(u=>{ %>       
+          <tr>
+            <td><%= i++  %></td>
+            <td><a href="<%= u.url %>"><%= u.url %></a></td>
+            <td><a href="/<%= u.short_url %>" onclick="window.open('<%= u.url %>');"><%= u.short_url %></a></td>
+            <td><%= u.count || 0 %></td>
+          </tr>
+      <%  }) %>
+        </tbody>
+      </table>
+    </form>
+  </body>
+</html>
