@@ -3,7 +3,9 @@ var router = express.Router();
 const db = require('../models')
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  db.Url.findAll()
+  db.Url.findAll({
+    order:'id desc'
+  })
   .then(data=>{
     res.render('index', { title: 'Url_Shortener',urls:data });
   })  
