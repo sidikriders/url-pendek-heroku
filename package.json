@@ -1,5 +1,5 @@
 {
-  "name": "express-url-shortener",
+  "name": "url-pendek-heroku",
   "version": "0.0.0",
   "private": true,
   "scripts": {
