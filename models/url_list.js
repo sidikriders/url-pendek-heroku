@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     hooks: {
       beforeCreate: (callback) => {
-        let random = "11234567890abcdefghijklmnopqrstuvwxyz01234567899"
+        let random = "11234567890aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ01234567899"
         let kocok = []
         for (let i = 0; i<5; i++) {
           kocok.push(random[Math.floor(Math.random()*random.length)])
