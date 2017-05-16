@@ -10,6 +10,11 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/create-new', function(req, res, next) {
+  res.render('add-new')
+
+});
+
 router.post('/', function(req, res, next) {
   let url = req.body.url
   db.url_list.create({
