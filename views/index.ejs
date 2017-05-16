@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Url Shortener</title>
+    <%- include ./partial/stylenya.ejs %>
+  </head>
+  <body>
+    <div style="padding: 5% 15% 30% 15%; width: 100%;">
+      <h3>Insert your link</h3>
+      <form class="" action="/" method="post">
+        <input type="text" name="url" placeholder="insert link here">
+      </form>
+      <br>
+      <table class="striped">
+        <thead>
+          <tr>
+            <th style="padding-left: 15px;">No.</th>
+            <th>URL</th>
+            <th>URL Short</th>
+            <th>Click Count</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        <%  for (let i=0; i<data.length; i++) { %>
+          <tr>
+            <td style="padding-left: 20px;"> <%= `${i+1}` %> </td>
+            <td style="max-width: 30%"> <a href="<%=data[i].url%>"><%= `${data[i].url}` %></a> </td>
+            <td> <a href="/<%=data[i].count%>/<%=`${data[i].id}=${data[i].short_url}`%>"><%= `/${data[i].id}=${data[i].short_url}` %></a> </td>
+            <td> <%= `${data[i].count}` %> </td>
+            <td style="padding-right: 20px;"> <a onClick="return confirm('anda yakin?')" href="/del/<%=data[i].id%>"><i class="tiny material-icons">delete</i></a> </td>
+          </tr>
+        <%  } %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
